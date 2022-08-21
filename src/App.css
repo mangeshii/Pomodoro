@@ -58,6 +58,7 @@
 .displaySessionValue,.displayBreakValue{
   width:70px;
   background-color: antiquewhite;
+  text-align: center;
 
 }
 .App-logo {
