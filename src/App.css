@@ -1,7 +1,65 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh
+}
+.containerr{
+  width:330px;
+  height:310px;
+  background-color: #FF6347;
+  border-radius: 20px;
 }
 
+.displayTimeLeftCont{
+  margin:20px;
+  background-color: antiquewhite;
+  padding: 5px 0px;
+  border-radius: 10px;
+}
+.button-container{
+  margin:0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.reset,.start,.stop{
+  padding:5px;
+  font-size: 20px;
+  width:45%
+}
+.start,.stop{
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}
+.btnn{
+  background-color: #CFD760;
+  border:2px solid wheat
+}
+.reset{
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
+.time-left{
+  font-size: 50px;
+  font-weight:400;
+}
+.behaviour,.time-left{
+  margin:3%
+}
+.inc-dec-btns{
+  display: flex;
+  padding:10px
+}
+.session-btn,.break-btn{
+  display: flex;
+  justify-content: center;
+}
+.displaySessionValue,.displayBreakValue{
+  width:70px;
+  background-color: antiquewhite;
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
