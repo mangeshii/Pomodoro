@@ -1,40 +1,49 @@
-import {useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
+import FormatTime from './FormatTime';
 
 function App() {
 
-  const [initialState, setInitialState] = useState(500)
-  const [isPause, setPause] = useState(false)
+  const [timeLeft, settimeLeft] = useState(5*60)
+  const [isPaused, setPause] = useState(false)
   const countRef = useRef()
 
-  const formatTime = () => {
-    const getSecond = `0${initialState % 60}`.slice(-2);
-    const minutes = `${Math.floor(initialState / 60)}`;
-    const getMinute = `0${minutes % 60}`.slice(-2);
-
-    return ` ${getMinute} : ${getSecond} `;
-  };
 
   const handlePlay = () => {
     setPause(true)
-    clearInterval(countRef.current)
-    countRef.current = setInterval(() => {
-      setInitialState((cd) => cd - 1);
-    }, 1000);
+      countRef.current = setInterval(() => {
+        settimeLeft((cd) => cd - 1);
+      }, 1000);
+
   }
+
+  useEffect(()=>{
+    if(timeLeft===0){
+      clearInterval(countRef.current)
+    }
+  },[timeLeft])
+
 
   const handlePause = () => {
     clearInterval(countRef.current)
     setPause(false)
   }
+
+  const handleReset=()=>{
+    clearInterval(countRef.current)
+    settimeLeft(5*60)
+  }
+
+
   return (
     <div className="App">
-      <button onClick={handlePlay}>Start</button>
-      <button onClick={handlePause}>Pause</button>
-
-      <h1>{formatTime()}</h1>
+      {!isPaused ? (<button onClick={handlePlay}>Start</button>) : (<button onClick={handlePause}>Pause</button>)}
+      <button onClick={handleReset}>Reset</button>
+      <h1><FormatTime timeLeft={timeLeft}/></h1>
     </div>
   );
 }
 
 export default App;
+
+
