@@ -36,6 +36,10 @@
   background-color: #CFD760;
   border:2px solid wheat
 }
+.btnn:active{
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
 .reset{
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;

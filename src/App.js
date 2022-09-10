@@ -13,8 +13,6 @@ function App() {
 
   const countRef = useRef()
 
-
-
   const switchesTimerMode = () => {
     if (behaviour === 'Session') {
       setBehaviour('Break')
